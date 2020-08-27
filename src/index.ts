@@ -6,7 +6,12 @@ const router = new Router()
 const port = 8004
 
 router.get("/", async (ctx, next) => {
-  ctx.body = '<h1>Hola Mundo</h1>'
+  ctx.body = '<h1>Hola Mundo 1</h1>'
+  next()
+})
+
+router.get("/json", async (ctx, next) => {
+  ctx.body = { msg: 'Hola mundo' }
   next()
 })
 
