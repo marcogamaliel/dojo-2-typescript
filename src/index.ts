@@ -1,5 +1,6 @@
 import Koa from 'koa'
 import Router from 'koa-router'
+import Logger from 'koa-logger'
 
 const app = new Koa()
 const router = new Router()
@@ -16,6 +17,7 @@ router.get("/json", async (ctx, next) => {
 })
 
 app
+  .use(Logger())
   .use(router.routes())
   .listen(port, () => {
     console.log(`La aplicación ha iniciado en el puerto ${port}`)
