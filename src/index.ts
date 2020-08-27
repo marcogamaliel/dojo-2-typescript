@@ -2,6 +2,7 @@ import Koa from 'koa'
 import Router from 'koa-router'
 import Logger from 'koa-logger'
 import { FriendlyMiddleware } from './application/middlewares/friendly/friendy.middleware'
+import { CronometerMiddleware } from './application/middlewares/cronometer/cronometer.middleware'
 
 const app = new Koa()
 const router = new Router()
@@ -25,6 +26,7 @@ router.post("/", async (ctx, next) => {
 
 app
   .use(Logger())
+  .use(CronometerMiddleware())
   .use(FriendlyMiddleware())
   .use(FriendlyMiddleware())
   .use(router.routes())
